@@ -1,6 +1,5 @@
 {
   "name": "atile-cms",
-  "version": "1.0.0",
   "main": "package.json",
   "license": "MIT",
   "scripts": {
