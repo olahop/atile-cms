@@ -1,7 +1,7 @@
 name: Deploy Sanity
 on:
   push:
-    branches: [fix/workflow]
+    branches: [main]
 jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
@@ -24,4 +24,4 @@ jobs:
         with:
           cmd: sanity deploy
         env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
