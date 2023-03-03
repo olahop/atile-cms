@@ -8,8 +8,20 @@ jobs:
     name: Deploy Sanity
     steps:
       - uses: actions/checkout@v3
-      - uses: sanity-io/github-action-sanity@v0.4
+
+      - name: Set Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+
+      - name: Sanity deploy
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: sanity deploy
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        with:
-          args: . deploy
