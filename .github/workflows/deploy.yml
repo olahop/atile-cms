@@ -19,16 +19,9 @@ jobs:
         with:
           cmd: install
 
-      - name: Sanity login
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: sanity login
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-
       - name: Sanity deploy
         uses: borales/actions-yarn@v4
         with:
           cmd: sanity deploy
-        # env:
-        #   SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
